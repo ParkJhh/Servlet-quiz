@@ -26,24 +26,24 @@ public class quiz01 extends HttpServlet {
         out.println("입력 데이터 : " + ns);
         out.println("<hr>");
         //배열에 담기
-        for(int i =0; i < array.length; i++){
-            if(array[i].length() ==3 || array[i].length() ==2){
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].length() == 3 || array[i].length() == 2) {
                 //성포함 3글자 혹은 2글자
-                newArray[i] = array[i].substring(0,1);
-            } else if(array[i].length() == 4){
+                newArray[i] = array[i].substring(0, 1);
+            } else if (array[i].length() == 4) {
                 //성이 2글자 ex:남궁 //성이 3글자인 경우는 포기
-                newArray[i] = array[i].substring(0,2);
+                newArray[i] = array[i].substring(0, 2);
             }
         }
         //최빈값 저장
         HashMap<String, Integer> count = new HashMap<>();
-        for(int i=0; i < newArray.length; i++) {
-            if(!count.containsKey(newArray[i])){
+        for (int i = 0; i < newArray.length; i++) {
+            if (!count.containsKey(newArray[i])) {
                 //키가 없는 경우 해시맵에 해당 성과 함께 초기값 1세팅
                 count.put(newArray[i], 1);
             } else {
                 //키가 존재하는 경우 value값 +
-                count.put(newArray[i],count.get(newArray[i])+1);
+                count.put(newArray[i], count.get(newArray[i]) + 1);
             }
         }
         //hashmap 밸류값으로 오름차순 정렬 > 같은 수의 성씨가 두개 존재 할 경우 해결 되는가?
@@ -65,3 +65,4 @@ public class quiz01 extends HttpServlet {
         out.println("<a href=http://localhost:8080/servlet_pro_war_exploded >[메인 페이지로]</a>");
     }
 }
+
